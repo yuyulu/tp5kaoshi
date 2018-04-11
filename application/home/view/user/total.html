@@ -1,0 +1,51 @@
+<block name="style">
+    {css href="__CSS__/style.css" /}
+</block>
+<div class="top">
+    <div class="top-title">在线考试系统 - 考试结束</div>
+</div>
+<div class="main">
+    <div class="main-wrap">
+        <div class="main-title center">您的成绩：
+            <?=$sum?>分</div>
+        <table class="total-table">
+            <tr>
+                <th>题型</th>
+                <th>题号</th>
+                <th>答题情况</th>
+                <th>得分</th>
+            </tr>
+            <!-- 循环输出各题型结果 -->
+            <?php foreach($total as $type=>$each): ?>
+            <?php foreach($each as $k=>$v): ?>
+            <tr>
+                <!-- 题型 -->
+                <?php if($k==1): ?>
+                <td rowspan="<?=$count[$type]?>">
+                    <?=$data['data'][$type]['name']?>
+                </td>
+                <?php endif; ?>
+                <!-- 题号 -->
+                <td>
+                    <?=$k?>
+                </td>
+                <!-- 答题情况 -->
+                <td>
+                    <?=$v ? '对' : '错'?>
+                </td>
+                <!-- 得分 -->
+                <td>
+                    <?=$v ? $score[$type] : 0?>
+                </td>
+            </tr>
+            <?php endforeach;?>
+            <?php endforeach;?>
+        </table>
+        <div class="total-act">
+            <a href="./">返回首页</a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    PHP在线考试系统
+</div>

@@ -1,0 +1,102 @@
+<block name="style">
+    <style type="text/css">
+    body {
+        background-color: #f3f3f4;
+    }
+
+    .logo-logo {
+        width: 550px;
+        margin: 100px auto;
+    }
+
+    .logo-name {
+        text-align: center;
+        color: #b51e34;
+        font-size: 80px;
+        font-weight: 800;
+        letter-spacing: 0px;
+        margin-bottom: 0px;
+    }
+
+    .logo-name-else {
+        margin: 15px auto;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .layui-form {
+        width: 450px;
+        margin: -30px auto;
+    }
+
+    .login-body {
+        width: 350px;
+        margin: 0px auto;
+    }
+    </style>
+</block>
+<div class="login-body layui-anim layui-anim-upbit">
+    <div class="logo-logo">
+        <h1 class="logo-name">在线答题系统</h1>
+        <h3 class="logo-name-else">在线答题系统登录</h3>
+    </div>
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱：</label>
+            <div class="layui-input-block">
+                <input type="text" name="email" required lay-verify="required" value="1065673465@qq.com" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码：</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" required lay-verify="required" value="123456" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">验证码：</label>
+            <div class="layui-input-block">
+                <input type="text" name="verify" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" onclick="verify()" style="cursor: pointer;">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-inline">
+                <img src="{:url('/verify')}" alt="captcha" id="verify_img" />
+            </div>
+            <div class="layui-form-mid layui-word-aux">看不清，点击换一张</div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo" style="width: 100%;">登录</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+function verify() {
+    var ts = Date.parse(new Date()) / 1000;
+    $('#verify_img').attr("src", "/verify?id=" + ts);
+}
+//Demo
+layui.use('form', function() {
+    var form = layui.form;
+    //监听提交
+    form.on('submit(formDemo)', function(data) {
+        postJson(
+            '/login',
+            data.field,
+            function(ret) {
+                if (ret.code == 200) {
+                    localStorage.setItem('token', ret.data.token);
+                    localStorage.setItem('userinfo', ret.data.userinfo);
+                    location.href = '/';
+                } else {
+                    layer.msg(ret.msg);
+                }
+            }
+        );
+        return false;
+    });
+});
+</script>

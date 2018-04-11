@@ -1,0 +1,24 @@
+<block name="style">
+    {css href="__CSS__/style.css" /} 
+</block>
+<div class="top layui-bg-cyan">
+    <div class="top-title">在线考试系统</div>
+    <a class="layui-btn layui-btn-small  layui-bg-cyan" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="main">
+    <div class="main-wrap">
+        <div class="main-title">请选择题库</div>
+        {foreach $info as $key=>$vo }
+        <div class="main-each">
+            <div class="main-each-L">{$vo.title}</div>
+            <div class="main-each-R">
+                <span>时间：{$vo.time}分钟 总分：{$vo.score}分</span><a class=" layui-bg-cyan" href="/read/{$key}">开始考试</a>
+            </div>
+        </div>
+        {/foreach}
+    </div>
+</div>
+<div class="footer">
+    PHP在线考试系统　本项目仅供学习使用
+</div>

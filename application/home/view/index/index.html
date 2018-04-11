@@ -1,0 +1,183 @@
+<div class="layui-layout layui-layout-admin">
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo">
+            <a href="javascript:void(0);">
+                超级管理员
+            </a>
+        </div>
+        <div class="left_open">
+            <i title="展开左侧栏" class="layui-icon">&#xe60f;</i>
+        </div>
+        <ul class="layui-nav left fast-add">
+            <li class="layui-nav-item">
+                <a href="">控制台<span class="layui-badge">9</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:void(0);">个人中心<span class="layui-badge-dot"></span>
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;"><img src="/avatar.jpg" class="layui-nav-img">13193835328</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;">修改信息</a></dd>
+                    <dd><a href="javascript:;">安全管理</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+               <a href="javascript:;" onclick="signout()">退了</a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+                    function signout(){
+                    getJson(
+                        '/signout',
+                        {},
+                        function(ret){
+                            window.location.href = "/login";
+                        }
+                        );
+                    }
+                </script>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div class="layui-side-scroll">
+            <div id="side-nav">
+                <ul id="nav">
+                    <li>
+                        <a class="javascript:;" href="javascript:;">
+                                <i class="layui-icon" style="top: 3px;">&#xe613;</i><cite>我的</cite>
+                                <i class="layui-icon nav_right">&#xe603;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="/lclist">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>联创列表</cite>
+                            </a>
+                            </li>
+                            <li>
+                                <a _href="/zdlist">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>总代理列表</cite>
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="javascript:;" href="javascript:;">
+                                <i class="layui-icon" style="top: 3px;">&#xe698;</i><cite>订单管理</cite>
+                                <i class="layui-icon nav_right">&#xe603;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="/thsq">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>待处理</cite>
+                            </a>
+                            </li>
+                            <li>
+                                <a _href="/thsqlist">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>已处理</cite>
+                            </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="javascript:;" href="javascript:;">
+                                <i class="layui-icon" style="top: 3px;">&#xe65e;</i><cite>提现管理</cite>
+                                <i class="layui-icon nav_right">&#xe603;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="/withdraw">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>待处理</cite>
+                            </a>
+                            </li>
+                            <li>
+                                <a _href="/withdrawlist">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>已处理</cite>
+                            </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="javascript:;" href="javascript:;">
+                                <i class="layui-icon" style="top: 3px;">&#xe620;</i><cite>配置管理</cite>
+                                <i class="layui-icon nav_right">&#xe603;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="/setting">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>配置更改</cite>
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="javascript:;" href="javascript:;">
+                                <i class="layui-icon" style="top: 3px;">&#xe645;</i><cite>发布公告</cite>
+                                <i class="layui-icon nav_right">&#xe603;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="/noticeadd">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>去发布</cite>
+                            </a>
+                            </li>
+                            <li>
+                                <a _href="/noticelist">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>公告列表</cite>
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="javascript:;" href="javascript:;">
+                                <i class="layui-icon" style="top: 3px;">&#xe657;</i><cite>运费结算</cite>
+                                <i class="layui-icon nav_right">&#xe603;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="/fare">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>待结算</cite>
+                            </a>
+                            </li>
+                            <li>
+                                <a _href="/farelist">
+                            <i class="layui-icon">&#xe60a;</i>
+                            <cite>已结算</cite>
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="x-slide_left"></div> -->
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe src='/welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
